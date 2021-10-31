@@ -48,12 +48,11 @@
       <button id="about_me_button">Click here to learn more about me.</button>
 
       <script>
-         var name = "Justin";
-         var age = "38";
-         document.write("Working on a degree in Environmental Science.<br>" + "my name is " +name + ", I am " +age);
-         console.log("javascript is working!");
+         $("button").click( function() {
+               $("#aboutme_p").show();
+         });
       </script>
-      <p hidden id="aboutme_p">  
+      <p hidden id="aboutme_p">
         I am a student at
         <a href="http://www.msudenver.edu">
         Metropolitan State University of Denver</a>.
