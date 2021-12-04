@@ -6,7 +6,7 @@
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-     
+
      <!-- Add the Leaflet JavaScript library -->
      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity=
      "sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
@@ -25,6 +25,15 @@
     // Add OpenStreetMap tile layer to map element
     var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                       { attribution: '© OpenStreetMap' }).addTo(map);
+
+    // Create point feature for Auraria Library
+    var myDataPoint = L.marker([39.743119, -105.002959]).addTo(map);
+
+    // Create area feature for campus, style and add to map
+    var myArea = L.polygon([[39.740652, -105.010233], [39.743218, -105.011864],
+    	[39.748473, -105.002487], [39.740283, -104.999037]],
+    	{color: 'blue', weight: 4}).addTo(map);
+
     </script>
 
 
