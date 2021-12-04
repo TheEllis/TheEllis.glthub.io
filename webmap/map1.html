@@ -50,7 +50,8 @@
         	.setContent("You clicked the map at " + e.latlng.toString())
         	.openOn(map);
     }
-
+    // Listen for a click event on the Map element
+    map.on('click', onMapClick);
 
 
 
