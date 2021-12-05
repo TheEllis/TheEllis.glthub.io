@@ -21,6 +21,8 @@
        // Add OpenStreetMap tile layer to map element
        var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                              { attribution: '© OpenStreetMap' }).addTo(map);
+       var basemaps = { "Default Basemap:", defaultBase };
+
        // Create point feature for Auraria Library
        var myDataPoint = L.marker([39.743119, -105.002959]).addTo(map);
        // Create area feature for campus, style and add to map
