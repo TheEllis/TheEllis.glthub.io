@@ -37,7 +37,7 @@
        var basemaps = { "Default Basemap": defaultBase,
                         "Stamen Watercolor": Stamen_Watercolor};
        var overlaymaps = {};
-       var layerMenu = L.control.layers(basemaps,overlapmaps).addTo(map);
+       var layerMenu = L.control.layers(basemaps,overlays).addTo(map);
 
        // Create point feature for Auraria Library
        var myDataPoint = L.marker([39.743119, -105.002959]).addTo(map);
