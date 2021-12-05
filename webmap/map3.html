@@ -21,6 +21,11 @@
        // Add OpenStreetMap tile layer to map element
        var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                              { attribution: '© OpenStreetMap' }).addTo(map);
+
+       var basemaps = { "Default Basemap:", defaultBase };
+       var overlaymaps = { };
+       var layerMenu = L.control.layers(basemaps,overlapmaps).addTo(map);
+
        // Create point feature for Auraria Library
        var myDataPoint = L.marker([39.743119, -105.002959]).addTo(map);
        // Create area feature for campus, style and add to map
@@ -53,7 +58,8 @@
                    "<br>Building Height: " +  feature.properties.BLDG_HEIGH +
                    "<br>Ground Elevation: " + feature.properties.GROUND_ELE);
            	}
-       	}).addTo(map);
+       	})
+        layerMenu.addOverlay(buildings, "Buildings");
        });
         // closing for the document.ready function
        });
