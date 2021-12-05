@@ -24,6 +24,10 @@
        var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                              { attribution: '© OpenStreetMap' }).addTo(map);
 
+       var basemaps = { "Default Basemap:", defaultBase };
+       var overlaymaps = {};
+       var layerMenu = L.control.layers(basemaps,overlapmaps).addTo(map);
+
        // Create point feature for Auraria Library
        var myDataPoint = L.marker([39.743119, -105.002959]).addTo(map);
 
@@ -32,10 +36,10 @@
              [39.748473, -105.002487], [39.740283, -104.999037]],
              {color: 'blue', weight: 4}).addTo(map);
 
-       var basemaps = { "Default Basemap:", defaultBase };
-       var overlaymaps = {};
-       var layerMenu = L.control.layer(basemaps,overlapmaps).addTo(map);
-
+       // Bind popup to layer menu
+       layerMenu.addOverlay(myArea, "Auraria Campus");
+       layerMenu.addOverlay(myDataPoint, "Auraria Library");
+       
        // Bind popup to Data Point object
        myDataPoint.bindPopup("<h3>Auraria Library</h3><p>Denver, CO<br>Information about Auraria Library.</p>");
 
