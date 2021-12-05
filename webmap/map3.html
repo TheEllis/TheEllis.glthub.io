@@ -21,10 +21,6 @@
        // Add OpenStreetMap tile layer to map element
        var defaultBase = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png',
                              { attribution: '© OpenStreetMap' }).addTo(map);
-       var basemaps = { "Default Basemap:", defaultBase };
-       var overlaymaps = { };
-       var layerMenu = L.control.layers(basemaps,overlapmaps).addTo(map);
-
        // Create point feature for Auraria Library
        var myDataPoint = L.marker([39.743119, -105.002959]).addTo(map);
        // Create area feature for campus, style and add to map
@@ -51,14 +47,13 @@
        var buildings;
        $.getJSON("buildings.json",function(data){
        	// add GeoJSON layer to the map once the file is loaded
-        buildings = L.geoJson(data,{
-                onEachFeature: function (feature, layer) {
-                    layer.bindPopup("Building Type: " + feature.properties.BLDG_TYPE +
-                    "<br>Building Height: " +  feature.properties.BLDG_HEIGH +
-                    "<br>Ground Elevation: " + feature.properties.GROUND_ELE);
+       buildings = L.geoJson(data,{
+               onEachFeature: function (feature, layer) {
+                   layer.bindPopup("Building Type: " + feature.properties.BLDG_TYPE +
+                   "<br>Building Height: " +  feature.properties.BLDG_HEIGH +
+                   "<br>Ground Elevation: " + feature.properties.GROUND_ELE);
            	}
-       	})
-        layerMenu.addOverlay(buildings, "Buildings");
+       	}).addTo(map);
        });
         // closing for the document.ready function
        });
