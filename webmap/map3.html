@@ -33,8 +33,8 @@
              {color: 'blue', weight: 4}).addTo(map);
 
        var basemaps = { "Default Basemap:", defaultBase };
-       var overlaymaps = { };
-       var layerMenu = L.control.layers(basemaps,overlapmaps).addTo(map);
+       var overlaymaps = {};
+       var layerMenu = L.control.layer(basemaps,overlapmaps).addTo(map);
 
        // Bind popup to Data Point object
        myDataPoint.bindPopup("<h3>Auraria Library</h3><p>Denver, CO<br>Information about Auraria Library.</p>");
